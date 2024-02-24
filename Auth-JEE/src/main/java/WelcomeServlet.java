@@ -25,16 +25,20 @@ public class WelcomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+ // Méthode pour gérer les requêtes POST
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Définition du type de contenu de la réponse comme étant HTML
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-	    response.setContentType("text/html");  
-	    PrintWriter out = response.getWriter();  
-	          
-	    String n=request.getParameter("username");  
-	    out.print("Welcome "+n);  
-	          
-	    out.close();  
-	}
+        // Récupération de la valeur du paramètre "username" du formulaire HTML
+        String n = request.getParameter("username");
+
+        // Affichage d'un message de bienvenue avec le nom d'utilisateur récupéré
+        out.print("Bienvenue " + n);
+
+        // Fermeture du flux de sortie
+        out.close();
+    }
 
 }
